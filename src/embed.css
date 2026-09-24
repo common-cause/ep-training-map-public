@@ -1,0 +1,186 @@
+/*
+ * cc-tool embed styles
+ *
+ * ALL rules are scoped under .cc-tool to avoid colliding with the host page.
+ * Never write bare element selectors (p, h2, a) without the .cc-tool prefix.
+ * font-family and color are intentionally set to inherit so the embed
+ * picks up the host page's brand styles automatically.
+ */
+
+.cc-tool {
+  font-family: inherit;
+  color: inherit;
+  max-width: 640px;
+  line-height: 1.5;
+}
+
+.cc-tool * {
+  box-sizing: border-box;
+}
+
+/* Title */
+.cc-tool__title {
+  font-size: 1.4em;
+  font-weight: 700;
+  margin: 0 0 1.25rem;
+}
+
+/* Question */
+.cc-tool__question {
+  margin-bottom: 1rem;
+}
+
+.cc-tool__question-text {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+.cc-tool__hint {
+  font-size: 0.9em;
+  color: #666;
+  margin: 0 0 1rem;
+}
+
+.cc-tool__choices {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.cc-tool__choice {
+  display: block;
+  width: 100%;
+  padding: 0.7rem 1.1rem;
+  background: #fff;
+  border: 2px solid #c00;
+  border-radius: 4px;
+  font-size: 1em;
+  font-family: inherit;
+  color: #c00;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.12s, color 0.12s;
+}
+
+.cc-tool__choice:hover,
+.cc-tool__choice:focus {
+  background: #c00;
+  color: #fff;
+  outline: none;
+}
+
+.cc-tool__choice:focus-visible {
+  outline: 3px solid #900;
+  outline-offset: 2px;
+}
+
+/* Results */
+.cc-tool__result {
+  padding: 1.25rem 1.25rem 1rem;
+  border-radius: 4px;
+  border-left: 4px solid #999;
+  background: #f5f5f5;
+  margin-bottom: 1rem;
+}
+
+.cc-tool__result--clear {
+  border-left-color: #2a7a2a;
+  background: #f0f7f0;
+}
+
+.cc-tool__result--action_required {
+  border-left-color: #b85c00;
+  background: #fff8f0;
+}
+
+.cc-tool__result--ineligible {
+  border-left-color: #c00;
+  background: #fff0f0;
+}
+
+.cc-tool__result-heading {
+  font-size: 1.2em;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+.cc-tool__result-body {
+  margin: 0 0 1rem;
+}
+
+.cc-tool__links {
+  padding-left: 1.2rem;
+  margin: 0 0 1rem;
+}
+
+.cc-tool__links li {
+  margin-bottom: 0.3rem;
+}
+
+.cc-tool__links a {
+  color: inherit;
+}
+
+/* Action Network signup block */
+.cc-tool__signup {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.cc-tool__signup-heading {
+  font-size: 1em;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+}
+
+.cc-tool__signup-body {
+  font-size: 0.9em;
+  color: #555;
+  margin: 0 0 0.75rem;
+}
+
+/* Back button */
+.cc-tool__back {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.9em;
+  padding: 0;
+  margin-top: 0.75rem;
+  display: block;
+}
+
+.cc-tool__back:hover {
+  color: #222;
+  text-decoration: underline;
+}
+
+.cc-tool__back:focus-visible {
+  outline: 2px solid #c00;
+  outline-offset: 2px;
+}
+
+/* Error state */
+.cc-tool__error {
+  color: #c00;
+  font-style: italic;
+}
+
+/* Responsive: stack choices vertically on narrow screens, row on wider */
+@media (min-width: 480px) {
+  .cc-tool__choices {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .cc-tool__choice {
+    width: auto;
+    min-width: 120px;
+    flex: 0 0 auto;
+  }
+}

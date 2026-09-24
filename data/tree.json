@@ -1,0 +1,59 @@
+{
+  "_comment": "Replace this placeholder content with your decision tree. See CLAUDE.md for full schema docs.",
+  "meta": {
+    "title": "Example Tool",
+    "description": "A starter decision tree — replace with your tool content.",
+    "start": "q_start"
+  },
+  "nodes": {
+    "q_start": {
+      "type": "question",
+      "text": "Example opening question — replace with your first question.",
+      "hint": "Optional clarifying text shown below the question. Remove this key if not needed.",
+      "choices": [
+        { "label": "Yes",      "next": "result_clear" },
+        { "label": "No",       "next": "q_followup" },
+        { "label": "Not sure", "next": "q_followup" }
+      ]
+    },
+
+    "q_followup": {
+      "type": "question",
+      "text": "Example follow-up question.",
+      "choices": [
+        { "label": "Option A", "next": "result_action" },
+        { "label": "Option B", "next": "result_clear" }
+      ]
+    },
+
+    "result_clear": {
+      "type": "result",
+      "status": "clear",
+      "heading": "You're all set!",
+      "body": "Example clear result — the user needs to take no action. Replace with your outcome text.",
+      "links": [],
+      "signup": {
+        "heading": "Stay informed",
+        "body": "Sign up to receive updates from Common Cause.",
+        "embed_code": "<!-- Paste your Action Network embed snippet here -->",
+        "an_tag": "example-clear"
+      }
+    },
+
+    "result_action": {
+      "type": "result",
+      "status": "action_required",
+      "heading": "Action required.",
+      "body": "Example action-required result — the user needs to do something. Replace with your outcome text.",
+      "links": [
+        { "label": "Example resource link", "url": "https://www.commoncause.org/" }
+      ],
+      "signup": {
+        "heading": "We can help.",
+        "body": "Sign up and we'll send you step-by-step guidance.",
+        "embed_code": "<!-- Paste your Action Network embed snippet here -->",
+        "an_tag": "example-action"
+      }
+    }
+  }
+}
