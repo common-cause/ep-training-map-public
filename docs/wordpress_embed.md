@@ -43,7 +43,7 @@ update can't break the map and the map can't break the page.
 
 ## Updates
 
-The map refreshes itself every night, so there's nothing to do in WordPress
+The map refreshes itself twice a day (about 11am and 11pm Eastern), so there's nothing to do in WordPress
 when trainings change. If the map looks empty or out of date, contact Rob.
 Don't edit the snippet to work around it.
 

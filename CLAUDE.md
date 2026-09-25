@@ -45,7 +45,8 @@ of the `gh-pages` churn.
 ## Data flow
 
 ```
-23:00 ET  ep-training-map nightly (existing dispatch task, nightly-publish)
+11:00 + 23:00 ET  ep-training-map publish (dispatch task nightly-publish; twice
+                  daily since 2026-09-25, STEP 3 live since contract rev 3)
   1  publish_trainings.py -> BQ ep_dashboards.training_map_payload
   2  verify_serving.py    -> read back what the staff map serves
   3  publish_public.py    -> newest payload row -> allowlist + venue->city
