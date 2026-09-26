@@ -1,0 +1,616 @@
+/*
+ * EP Training Map widget styles.
+ *
+ * EVERY rule is scoped under #cc-ep-training-map so nothing leaks into the
+ * page shell. Never write a bare element selector without that prefix.
+ * chrome.css owns the shell; this file owns the widget.
+ *
+ * BRAND: the ELECTION PROTECTION COALITION, not Common Cause. Tokens are the
+ * coalition's own, lifted verbatim from 866ourvote.org's theme and re-exposed
+ * here under the `--cetm-` prefix so the widget stays self-contained.
+ *   Source of record: ep-tools-home/docs/ep-coalition-style-guide.md
+ *
+ * The three rules of this palette that are not obvious from the values:
+ *
+ *   1. YELLOW IS NEVER A SURFACE. In the whole coalition theme it appears
+ *      three times: the US-map hover fill, a rule, and one tooltip. Two of
+ *      those three are used below — map hover/selection, and the panel's top
+ *      rule — and that is the entire yellow budget. No yellow badges, no
+ *      yellow banners; that is the Common Cause habit, not the EP one.
+ *   2. SKY IS A FILL, NEVER AN INK. #3FAFEF is 2.44:1 on white. It is a
+ *      region fill, a button background and a focus ring. When sky IS the
+ *      background the label on it is ROYAL, not white (5.49:1 vs 2.44:1).
+ *      `--cetm-sea` is the ink version of sky; blue text is always sea.
+ *   3. STEEL IS LARGE-TEXT-ONLY at 3.03:1. Body-size muted copy is slate.
+ *
+ * font-family inherits deliberately, so the widget picks up the page's Figtree
+ * without restating the @font-face. The coalition's Proxima Nova kit is
+ * domain-locked to 866ourvote.org and must never be served from here.
+ */
+
+#cc-ep-training-map {
+  /* Neutrals, light to dark */
+  --cetm-white:  #FFFFFF;
+  --cetm-cinder: #E7E8F2;   /* the shelf: grouped content, and "no trainings" */
+  --cetm-cloud:  #CFD2E6;   /* the default 1px border, everywhere */
+  --cetm-steel:  #8E93AC;   /* 3.03:1 — decorative and large text only */
+  --cetm-slate:  #606480;   /* body copy */
+  --cetm-royal:  #222A5F;   /* every heading; primary dark */
+
+  /* Blues */
+  --cetm-baby:   #CCE1FA;   /* notice/alert backgrounds */
+  --cetm-sky:    #3FAFEF;   /* a FILL and a focus ring, never text */
+  --cetm-sea:    #1B7BB3;   /* the ink version of sky: links */
+
+  /* Highlight — hover, selection, and the panel rule. Never a surface. */
+  --cetm-hl:     #FFE640;
+
+  --cetm-line:   #FFFFFF;   /* state borders, on every fill */
+
+  font-family: inherit;
+  font-weight: 500;         /* the coalition's "regular" — there is no 400 */
+  color: var(--cetm-slate);
+  line-height: 1.5;
+  max-width: 1040px;
+  margin: 0 auto;
+  container-type: inline-size;
+}
+
+#cc-ep-training-map *,
+#cc-ep-training-map *::before,
+#cc-ep-training-map *::after { box-sizing: border-box; }
+
+/* The signature EP detail: 12px, 700, 2px tracking, uppercase. One rule reused
+   across the system; recolored per context. Here: tags and the register button
+   (`.cetm-sKey` carries it too, but at its own smaller size). */
+#cc-ep-training-map .cetm-tag,
+#cc-ep-training-map .cetm-btn {
+  font-size: .75rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* ---------- header ---------- */
+
+/* Headings are ALWAYS 900 and ALWAYS royal. There is no light heading anywhere
+   in the coalition system, and defaulting to 600/700 is the easiest way to get
+   this palette wrong. */
+#cc-ep-training-map .cetm-title {
+  font-size: 1.5rem;
+  line-height: 1.1;
+  font-weight: 900;
+  color: var(--cetm-royal);
+  margin: 0 0 .4rem;
+}
+
+#cc-ep-training-map .cetm-sub {
+  margin: 0 0 1rem;
+  font-size: .95rem;
+  color: var(--cetm-slate);
+  max-width: 62ch;
+}
+
+#cc-ep-training-map .cetm-sub strong {
+  color: var(--cetm-royal);
+  font-weight: 700;
+}
+
+#cc-ep-training-map .cetm-loading,
+#cc-ep-training-map .cetm-error {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--cetm-slate);
+}
+
+/* The coalition's alert pattern (§5.5): baby blue, royal ink, centered small.
+   Was a cream-and-yellow box — yellow is not a surface in this system. */
+#cc-ep-training-map .cetm-stale {
+  margin: 0 0 .75rem;
+  padding: .55rem .8rem;
+  background: var(--cetm-baby);
+  border-radius: 5px;
+  font-size: .85rem;
+  color: var(--cetm-royal);
+}
+
+/* ---------- controls ---------- */
+
+#cc-ep-training-map .cetm-controls { margin: 0 0 .85rem; }
+
+#cc-ep-training-map .cetm-select {
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: .55rem 2rem .55rem .75rem;
+  border: 1px solid var(--cetm-cloud);
+  border-radius: 4px;              /* controls are 4px; cards 5px; slabs 10px */
+  background: var(--cetm-white);
+  color: var(--cetm-royal);
+  min-width: 17rem;
+  max-width: 100%;
+  cursor: pointer;
+  transition: border-color .2s ease;
+  /* Chevron drawn inline so the widget needs no image requests. Royal. */
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23222A5F' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right .7rem center;
+}
+
+/* Hover recolors the border to sky — the coalition's control pattern. */
+#cc-ep-training-map .cetm-select:hover { border-color: var(--cetm-sky); }
+
+#cc-ep-training-map .cetm-select:focus-visible {
+  outline: 2px solid var(--cetm-sky);
+  outline-offset: 2px;
+}
+
+#cc-ep-training-map .cetm-sronly {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- map ---------- */
+
+/* The choropleth. Three fills, deliberately on a dark / mid / near-white
+   LIGHTNESS ladder rather than three hues — the map must not rely on hue
+   alone, and the panel states availability in words as well.
+ *
+ *   has trainings   royal  #222A5F   13.42:1, white label
+ *   on-demand only  sky    #3FAFEF    5.49:1, ROYAL label (never white)
+ *   none            cinder #E7E8F2   11.01:1, royal label
+ *   hover/selected  yellow #FFE640   10.64:1, royal label
+ *
+ * Yellow-as-map-hover is not a liberty taken with the rule in the header: it
+ * is one of the three places the coalition's own theme uses yellow, and its
+ * US map is the first of them.
+ */
+
+#cc-ep-training-map .cetm-stage {
+  position: relative;
+}
+
+#cc-ep-training-map .cetm-map {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+#cc-ep-training-map .cetm-st {
+  stroke: var(--cetm-line);
+  stroke-width: 1;
+  stroke-linejoin: round;
+  transition: fill .12s ease;
+}
+
+#cc-ep-training-map .cetm-st.cetm-has { fill: var(--cetm-royal); }
+#cc-ep-training-map .cetm-st.cetm-ondemand { fill: var(--cetm-sky); }
+#cc-ep-training-map .cetm-st.cetm-none { fill: var(--cetm-cinder); }
+
+/* Only actionable states get a pointer + hover; a gray state is still
+   clickable (it explains itself) but shouldn't advertise like a link. */
+#cc-ep-training-map .cetm-st[role="button"],
+#cc-ep-training-map .cetm-chip[role="button"] { cursor: pointer; }
+
+#cc-ep-training-map .cetm-st[role="button"]:hover,
+#cc-ep-training-map .cetm-st.cetm-sel { fill: var(--cetm-hl); }
+
+#cc-ep-training-map .cetm-st.cetm-none:hover { fill: var(--cetm-cloud); }
+
+/* Focus is a ROYAL stroke, not the usual sky outline: sky is itself one of the
+   fills, so a sky ring would vanish on every on-demand state. Royal reads on
+   all four fills (5.49:1 on sky, 10.64:1 on yellow, 11.01:1 on cinder). */
+#cc-ep-training-map .cetm-st:focus { outline: none; }
+#cc-ep-training-map .cetm-st:focus-visible {
+  outline: none;
+  stroke: var(--cetm-royal);
+  stroke-width: 2.5;
+}
+
+/* ---------- small-state callouts ---------- */
+
+#cc-ep-training-map .cetm-leader {
+  stroke: var(--cetm-steel);
+  stroke-width: 1;
+}
+
+#cc-ep-training-map .cetm-chip rect {
+  stroke: var(--cetm-line);
+  stroke-width: 1;
+  transition: fill .12s ease;
+}
+
+#cc-ep-training-map .cetm-chip.cetm-has rect { fill: var(--cetm-royal); }
+#cc-ep-training-map .cetm-chip.cetm-ondemand rect { fill: var(--cetm-sky); }
+#cc-ep-training-map .cetm-chip.cetm-none rect { fill: var(--cetm-cinder); }
+
+#cc-ep-training-map .cetm-chip text {
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  fill: var(--cetm-white);
+  pointer-events: none;
+}
+
+/* Sky, cinder and yellow are all light fills — ROYAL is the readable label on
+   every one of them. On sky this is the rule from `.btn--sky`, not a choice:
+   royal-on-sky is 5.49:1 where white-on-sky is 2.44:1. */
+#cc-ep-training-map .cetm-chip.cetm-ondemand text,
+#cc-ep-training-map .cetm-chip.cetm-none text { fill: var(--cetm-royal); }
+
+#cc-ep-training-map .cetm-chip[role="button"]:hover rect,
+#cc-ep-training-map .cetm-chip.cetm-sel rect { fill: var(--cetm-hl); }
+
+#cc-ep-training-map .cetm-chip[role="button"]:hover text,
+#cc-ep-training-map .cetm-chip.cetm-sel text { fill: var(--cetm-royal); }
+
+#cc-ep-training-map .cetm-chip:focus { outline: none; }
+#cc-ep-training-map .cetm-chip:focus-visible rect {
+  stroke: var(--cetm-royal);
+  stroke-width: 2.5;
+}
+
+/* ---------- the persistent panel ---------- */
+
+/* The one shadow in this file. The coalition theme has three in 192KB and
+   reaches for a border instead — but a panel floating over the map genuinely
+   is the system's "elevated element" case, and this is that token's exact
+   value from §5.6. The 4px top rule in yellow is the second sanctioned yellow
+   use, and it ties the panel to the state you just turned yellow. */
+#cc-ep-training-map .cetm-panel {
+  position: absolute;
+  z-index: 5;
+  width: min(23rem, 88%);
+  max-height: 86%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--cetm-white);
+  border: 1px solid var(--cetm-cloud);
+  border-top: 4px solid var(--cetm-hl);
+  border-radius: 5px;
+  box-shadow: 0 12px 32px rgba(122, 126, 153, .25);
+  padding: .9rem 1rem 1rem;
+}
+
+/* Docked form for narrow embeds, where a floating bubble can't work. */
+#cc-ep-training-map .cetm-panel.cetm-sheet {
+  position: relative;
+  left: auto !important;
+  top: auto !important;
+  width: 100%;
+  max-height: none;
+  margin-top: .75rem;
+  box-shadow: none;
+}
+
+#cc-ep-training-map .cetm-close {
+  float: right;
+  margin: -.35rem -.4rem 0 .5rem;
+  background: none;
+  border: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--cetm-slate);
+  cursor: pointer;
+  padding: .1rem .3rem;
+  border-radius: 4px;
+}
+
+#cc-ep-training-map .cetm-close:hover {
+  background: var(--cetm-cinder);
+  color: var(--cetm-royal);
+}
+
+#cc-ep-training-map .cetm-close:focus-visible {
+  outline: 2px solid var(--cetm-sky);
+  outline-offset: 2px;
+}
+
+#cc-ep-training-map .cetm-pTitle {
+  font-size: 1.1875rem;
+  font-weight: 900;
+  line-height: 1.25;
+  color: var(--cetm-royal);
+  margin-bottom: .6rem;
+}
+
+#cc-ep-training-map .cetm-empty {
+  margin: 0 0 .8rem;
+  font-size: .9rem;
+  color: var(--cetm-slate);
+}
+
+#cc-ep-training-map .cetm-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#cc-ep-training-map .cetm-item {
+  padding: .75rem 0;
+  border-top: 1px solid var(--cetm-cloud);
+}
+
+#cc-ep-training-map .cetm-item:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+#cc-ep-training-map .cetm-tName {
+  font-weight: 700;
+  font-size: .95rem;
+  color: var(--cetm-royal);
+  margin-bottom: .35rem;
+}
+
+#cc-ep-training-map .cetm-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3rem;
+  margin-bottom: .45rem;
+}
+
+/* The eyebrow rule, on a cinder shelf. Royal on cinder is 11.01:1. */
+#cc-ep-training-map .cetm-tag {
+  font-size: .68rem;
+  letter-spacing: 1.5px;
+  padding: .2rem .5rem;
+  border-radius: 4px;
+  background: var(--cetm-cinder);
+  color: var(--cetm-royal);
+}
+
+#cc-ep-training-map .cetm-when {
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+  margin-bottom: .5rem;
+}
+
+#cc-ep-training-map .cetm-date {
+  font-size: .85rem;
+  color: var(--cetm-slate);
+}
+
+#cc-ep-training-map .cetm-date b {
+  font-weight: 700;
+  color: var(--cetm-royal);
+}
+
+#cc-ep-training-map .cetm-date.cetm-hid { display: none; }
+
+#cc-ep-training-map .cetm-anytime {
+  font-size: .8rem;
+  color: var(--cetm-slate);
+  font-style: italic;
+}
+
+/* Sea is the ink version of sky — blue text is never sky. Underlined: the
+   coalition underlines nothing, but this is a control, and a bare-colored
+   button with no affordance is a worse trade than a little decoration. */
+#cc-ep-training-map .cetm-more {
+  align-self: flex-start;
+  margin-top: .15rem;
+  padding: 0;
+  background: none;
+  border: 0;
+  font-family: inherit;
+  font-size: .8rem;
+  color: var(--cetm-sea);
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#cc-ep-training-map .cetm-more:hover { color: var(--cetm-royal); }
+
+#cc-ep-training-map .cetm-more:focus-visible {
+  outline: 2px solid var(--cetm-sky);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+#cc-ep-training-map .cetm-venue {
+  font-size: .8rem;
+  color: var(--cetm-slate);
+  margin-bottom: .5rem;
+}
+
+/* `.btn--sky`, the coalition's primary button, verbatim — including the royal
+   label, which is the whole point of §2.3. Hover swaps to `.btn--royal`. */
+#cc-ep-training-map .cetm-btn {
+  display: inline-block;
+  background: var(--cetm-sky);
+  color: var(--cetm-royal);
+  border: 1px solid var(--cetm-sky);
+  border-radius: 4px;
+  padding: .55rem .9rem;
+  text-align: center;
+  transition: background-color .25s ease-in-out, border-color .25s ease-in-out,
+              color .25s ease-in-out;
+}
+
+#cc-ep-training-map .cetm-btn:hover,
+#cc-ep-training-map .cetm-btn:focus {
+  background: var(--cetm-royal);
+  border-color: var(--cetm-royal);
+  color: var(--cetm-white);
+  text-decoration: none;
+}
+
+#cc-ep-training-map .cetm-btn:focus-visible {
+  outline: 2px solid var(--cetm-sky);
+  outline-offset: 2px;
+}
+
+/* ---------- staff block ----------
+ * The half of a card that must not leave this page: signups, host contact,
+ * the live Zoom join link. Set off with a rule and a tinted ground so the
+ * boundary is visible rather than remembered — someone screenshotting a
+ * card to paste into Slack should be able to see what they are about to
+ * include.
+ *
+ * Cinder shelf plus a 3px yellow left rule. This was a cream box with a yellow
+ * border, which in this system is a yellow SURFACE and therefore out; a rule is
+ * the sanctioned form, and it does the same marking job.
+ */
+
+#cc-ep-training-map .cetm-staff {
+  margin-top: .6rem;
+  padding: .55rem .7rem;
+  background: var(--cetm-cinder);
+  border: 1px solid var(--cetm-cloud);
+  border-left: 3px solid var(--cetm-hl);
+  border-radius: 5px;
+  font-size: .78rem;
+  line-height: 1.5;
+}
+
+#cc-ep-training-map .cetm-sStat {
+  color: var(--cetm-royal);
+  margin-bottom: .18rem;
+}
+
+#cc-ep-training-map .cetm-sStat b { font-weight: 900; }
+
+#cc-ep-training-map .cetm-sStat span {
+  color: var(--cetm-slate);
+  font-weight: 500;
+}
+
+#cc-ep-training-map .cetm-sRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .3rem .5rem;
+  margin-top: .18rem;
+  word-break: break-word;
+}
+
+#cc-ep-training-map .cetm-sKey {
+  color: var(--cetm-slate);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: .66rem;
+  font-weight: 700;
+}
+
+/* Sea on cinder is 3.80:1 — large-text-only — so links sit on their own white
+   pill rather than directly on the shelf. */
+#cc-ep-training-map .cetm-sRow a { color: var(--cetm-sea); }
+
+#cc-ep-training-map .cetm-sLink {
+  display: inline-block;
+  padding: .14rem .5rem;
+  border: 1px solid var(--cetm-cloud);
+  border-radius: 999px;
+  background: var(--cetm-white);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color .2s ease;
+}
+
+#cc-ep-training-map .cetm-sLink:hover,
+#cc-ep-training-map .cetm-sLink:focus { border-color: var(--cetm-sky); }
+
+#cc-ep-training-map .cetm-sLink:focus-visible {
+  outline: 2px solid var(--cetm-sky);
+  outline-offset: 2px;
+}
+
+/* Not decoration: this one is a disruption vector for a targeted event. It has
+   to out-shout the other pills, and this palette has no warning hue — yellow is
+   spoken for and a yellow badge is forbidden outright. So it separates by
+   WEIGHT and BOX instead: royal ink at 700 inside a royal hairline, against
+   sea at 500 inside a cloud one. */
+#cc-ep-training-map .cetm-sSensitive {
+  border-color: var(--cetm-royal);
+  font-weight: 700;
+}
+
+#cc-ep-training-map .cetm-sRow a.cetm-sSensitive { color: var(--cetm-royal); }
+
+#cc-ep-training-map .cetm-sId {
+  margin-top: .3rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: .68rem;
+  color: var(--cetm-slate);
+}
+
+#cc-ep-training-map .cetm-empty code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: .92em;
+  background: var(--cetm-cinder);
+  color: var(--cetm-royal);
+  padding: 0 .2em;
+  border-radius: 4px;
+}
+
+/* ---------- legend + footer ---------- */
+
+#cc-ep-training-map .cetm-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem 1.1rem;
+  margin: .8rem 0 .35rem;
+}
+
+#cc-ep-training-map .cetm-key {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .82rem;
+  color: var(--cetm-slate);
+}
+
+#cc-ep-training-map .cetm-sw {
+  width: .8rem;
+  height: .8rem;
+  border-radius: 4px;
+  display: inline-block;
+  flex: 0 0 auto;
+}
+
+#cc-ep-training-map .cetm-sw.cetm-has { background: var(--cetm-royal); }
+#cc-ep-training-map .cetm-sw.cetm-ondemand { background: var(--cetm-sky); }
+
+/* Cinder against a white page needs its own edge or it reads as nothing. */
+#cc-ep-training-map .cetm-sw.cetm-none {
+  background: var(--cetm-cinder);
+  box-shadow: inset 0 0 0 1px var(--cetm-cloud);
+}
+
+#cc-ep-training-map .cetm-foot {
+  margin: 0;
+  font-size: .78rem;
+  color: var(--cetm-slate);
+}
+
+/* ---------- narrow embeds ---------- */
+/* Container queries so this responds to the WIDGET's width, not the viewport's
+   — a widget in a narrow column on a wide screen needs the same treatment. */
+
+@container (max-width: 560px) {
+  #cc-ep-training-map .cetm-title { font-size: 1.25rem; }
+  #cc-ep-training-map .cetm-select { min-width: 0; width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #cc-ep-training-map .cetm-st,
+  #cc-ep-training-map .cetm-chip rect,
+  #cc-ep-training-map .cetm-btn { transition: none; }
+}
+
+@media print {
+  #cc-ep-training-map .cetm-panel { position: relative; box-shadow: none; }
+}
