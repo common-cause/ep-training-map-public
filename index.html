@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EP Training Map &middot; Election Protection</title>
+  <!-- PUBLIC PAGE. Built by ep-training-map/scripts/publish_public.py and
+       force-pushed to common-cause/ep-training-map-public (gh-pages), which
+       GitHub Pages serves and protectthevote.net iframes. Edit the source in
+       ep-training-map/src/ep_training_map/public_site/, never the gh-pages copy.
+       Unlisted, not secret: noindex keeps it out of search, and everything on
+       it is allowlisted as fit to be fully public. -->
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon.png" sizes="any" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="preload" href="fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="chrome.css" />
+  <link rel="stylesheet" href="embed.css" />
+</head>
+<body class="site-page">
+  <!-- No masthead: this page lives in an iframe on protectthevote.net, which
+       has its own. -->
+  <main class="site-main">
+    <p class="public-note">
+      <span><strong>For coalition information sharing only.</strong> This map
+      shows Election Protection volunteer trainings scheduled across the
+      country. If you're a volunteer and want to sign up, please go to
+      <a href="https://protectthevote.net/" target="_top">protectthevote.net</a>.</span>
+    </p>
+
+    <div id="cc-ep-training-map"
+         data-public="true"
+         data-api="trainings.json"
+         data-geo="us-states.json"></div>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      Election Protection coalition &middot; operated by Common Cause
+      &middot; <a href="https://866ourvote.org" target="_top">866ourvote.org</a>
+    </p>
+  </footer>
+
+  <script src="embed.js"></script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+/*
+ * Page chrome — the masthead, auth badge and page shell around the widget.
+ *
+ * This page dresses as the ELECTION PROTECTION COALITION, not as Common Cause.
+ * EP is 300+ partner organizations; a green Common Cause masthead tells staff
+ * the wrong thing about whose tool this is. Common Cause is credited in the
+ * footer as operator — that is the right amount of attribution.
+ *
+ * Tokens below are lifted verbatim — names AND values — from the coalition's
+ * own theme at 866ourvote.org, so this room, the foyer (ep-tools-home) and the
+ * coalition's public site read as one effort. Don't invent a color here. If you
+ * need one that isn't below, take it from the style guide; if it isn't there
+ * either, it isn't part of the system.
+ *
+ *   Source of record: ep-tools-home/docs/ep-coalition-style-guide.md
+ *   Why:              knowledge library, ep-tools-family-wears-the-coalition-brand
+ *
+ * Kept separate from embed.css on purpose: embed.css is scoped entirely under
+ * #cc-ep-training-map, this file is the part that only makes sense when the
+ * widget owns the whole page.
+ *
+ * TYPE: Figtree, self-hosted. The coalition sets everything in Proxima Nova via
+ * Adobe Fonts kit `xbi6iic`, which is DOMAIN-LOCKED to 866ourvote.org — serving
+ * it from here would be a licence violation, the same wall that keeps cc-brand's
+ * Season faces off our hosts. A login is not a licence. Figtree is the closest
+ * free humanist-geometric match, it is SIL OFL, and it carries the 500/600/700/
+ * 900 range this system depends on.
+ */
+
+/* Variable font, 300-900 in one file per subset. Self-hosted rather than loaded
+ * from Google's CDN — no third-party request from this page. Same files the
+ * foyer serves; keep them in sync. */
+@font-face {
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+  src: url("fonts/figtree-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                 U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+                 U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+  src: url("fonts/figtree-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+                 U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF,
+                 U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+:root {
+  /* Neutrals, light to dark */
+  --white:  #FFFFFF;
+  --cinder: #E7E8F2;   /* the offset "shelf" behind grouped content */
+  --cloud:  #CFD2E6;   /* the default 1px border, everywhere */
+  --steel:  #8E93AC;   /* 3.03:1 — decorative and large text only, never body */
+  --slate:  #606480;   /* body copy */
+  --royal:  #222A5F;   /* every heading; primary dark */
+
+  /* Blues */
+  --baby:   #CCE1FA;   /* notice/alert backgrounds */
+  --sky:    #3FAFEF;   /* 2.44:1 — a FILL and a focus ring, never text */
+  --sea:    #1B7BB3;   /* the ink version of sky: links */
+
+  /* Highlight. Never a surface — see embed.css for its two sanctioned uses. */
+  --yellow: #FFE640;
+
+  --font-sans: "Figtree", "Segoe UI", system-ui, -apple-system, Roboto, Helvetica,
+               Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --p:     1rem;
+  --small: .875rem;
+  --link:  .75rem;     /* the eyebrow size */
+
+  --medium:   500;     /* the coalition's "regular" — there is no 400 */
+  --semibold: 600;
+  --bold:     700;
+  --black:    900;
+
+  --tight:  1.1;
+  --normal: 1.25;
+  --loose:  1.5;
+
+  /* 4 / 5 / 10 is the whole radius ladder on the coalition site. */
+  --radius-control: 4px;
+  --radius-card:    5px;
+  --radius-slab:    10px;
+}
+
+* { box-sizing: border-box; }
+
+body.site-page {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-sans);
+  font-weight: var(--medium);
+  background: var(--white);
+  color: var(--slate);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* The signature EP detail: 12px, 700, 2px tracking, uppercase. One rule reused
+   across buttons, nav, section labels and badges throughout the coalition. */
+.eyebrow {
+  font-size: var(--link);
+  font-weight: var(--bold);
+  line-height: var(--normal);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* ---- masthead ----------------------------------------------------------- */
+
+/* White, with structure from the hairline underneath. The coalition masthead
+   carries no field of brand color, because no one partner owns the frame. */
+.site-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--cloud);
+}
+
+.site-header-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px 16px;
+  flex-wrap: wrap;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.brand-lockup { height: 44px; width: auto; display: block; }
+
+/* Separated from the lockup by a rule rather than stacked under a repeated
+   name — the lockup IS the coalition's name. */
+.brand-product {
+  padding-left: 16px;
+  border-left: 1px solid var(--cloud);
+  color: var(--slate);
+}
+
+.brand-link:focus-visible {
+  outline: 2px solid var(--sky);
+  outline-offset: 2px;
+  border-radius: var(--radius-control);
+}
+
+/* ---- auth badge --------------------------------------------------------- */
+
+.auth-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--small);
+  font-weight: var(--medium);
+  color: var(--slate);
+}
+
+.auth-who {
+  max-width: 22ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.auth-role {
+  border: 1px solid var(--cloud);
+  border-radius: 999px;
+  padding: 2px 9px;
+  font-size: 11px;
+  font-weight: var(--bold);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--royal);
+  background: var(--cinder);
+}
+
+.auth-signout {
+  color: var(--royal);
+  text-decoration: none;
+  font-weight: var(--semibold);
+  border: 1px solid var(--cloud);
+  border-radius: var(--radius-control);
+  padding: 5px 11px;
+  white-space: nowrap;
+  transition: border-color .2s ease;
+}
+
+/* Hover recolors the border to sky — the coalition's card/control pattern.
+   It does not lift, shadow or translate. */
+.auth-signout:hover { border-color: var(--sky); }
+
+.auth-signout:focus-visible {
+  outline: 2px solid var(--sky);
+  outline-offset: 2px;
+}
+
+/* ---- page body ---------------------------------------------------------- */
+
+.site-main {
+  flex: 1;
+  max-width: 1120px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 28px 20px 56px;
+}
+
+/* A standing reminder of what this page is, because the whole reason it needs
+   a login is the fields the Pages version could never carry. Not a warning
+   banner — this is the expected state, and a banner that is always on is one
+   nobody reads.
+
+   Baby blue, royal ink: the coalition's alert pattern (§5.5). This was a
+   cream-and-yellow box, which is the Common Cause habit — in this system yellow
+   is an interaction highlight and never a surface. */
+.staff-note,
+.public-note {   /* public-note: the coalition map's "information sharing" line */
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: var(--baby);
+  border-radius: var(--radius-card);
+  padding: 12px 16px;
+  margin: 0 0 24px;
+  font-size: var(--small);
+  font-weight: var(--medium);
+  line-height: var(--loose);
+  color: var(--royal);
+}
+
+.staff-note strong,
+.public-note strong { font-weight: var(--black); }
+
+.public-note a {
+  color: var(--royal);
+  font-weight: var(--bold);
+  text-decoration: underline;
+}
+
+.public-note a:focus-visible {
+  outline: 2px solid var(--royal);
+  outline-offset: 2px;
+  border-radius: var(--radius-control);
+}
+
+/* ---- footer ------------------------------------------------------------- */
+
+.site-footer {
+  border-top: 1px solid var(--cloud);
+  max-width: 1120px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 18px 20px 40px;
+  font-size: var(--small);
+  font-weight: var(--medium);
+  line-height: var(--loose);
+  color: var(--slate);
+}
+
+.site-footer p { margin: 0 0 8px; }
+.site-footer p:last-child { margin-bottom: 0; }
+
+.site-footer code {
+  font-family: var(--font-mono);
+  font-size: .92em;
+  color: var(--royal);
+}
+
+.site-footer a {
+  color: var(--sea);
+  font-weight: var(--semibold);
+  text-decoration: none;
+}
+
+/* The coalition site underlines nothing; keep that, but not at the cost of a
+   link being unfindable by anyone navigating with a keyboard. */
+.site-footer a:hover,
+.site-footer a:focus-visible { text-decoration: underline; }
+
+.site-footer a:focus-visible {
+  outline: 2px solid var(--sky);
+  outline-offset: 2px;
+  border-radius: var(--radius-control);
+}
+
+@media (max-width: 600px) {
+  .brand-lockup { height: 34px; }
+  .brand-link { gap: 12px; }
+  .brand-product { padding-left: 12px; }
+  .auth-who { display: none; }   /* the Sign out control is what matters here */
+  .site-main { padding: 20px 14px 40px; }
+  .site-footer { padding: 18px 14px 36px; }
+}
