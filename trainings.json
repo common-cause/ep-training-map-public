@@ -1,0 +1,354 @@
+{
+ "_meta": {
+  "schema_version": 1,
+  "generated_at": "2026-10-31T11:02:43-04:00",
+  "as_of_date": "2026-10-31",
+  "horizon_days": 120,
+  "audience": "PUBLIC: allowlisted fields only",
+  "counts": {
+   "states": 19,
+   "trainings": 33,
+   "sessions": 15,
+   "on_demand": 22
+  },
+  "states_hash": "9f4c2ee19cf960b9083b3707f72fbb1977f00837a200bdf3c6e1025eb5d7ad51",
+  "build_hash": "a9f02b09fa54e6f1671c8569714ac6a011ad28a9f102d6431ea46e88826b346f"
+ },
+ "states": {
+  "AZ": [
+   {
+    "name": "Refresher Virtual Recap: FOR RETURNING 2026 PRIMARY POLL MONITORS ONLY",
+    "url": "https://app.protectthevote.net/volunteer/trainings/322",
+    "role": "2026 Poll Monitor",
+    "on_demand": true
+   }
+  ],
+  "CO": [
+   {
+    "name": "Colorado Nonpartisan Election Protection Volunteer Training",
+    "url": "https://airtable.com/appHWQXrXbkSqzwGn/pagJuz8E39VQo2zEI/form",
+    "role": "Poll Monitor",
+    "modality": "Virtual",
+    "on_demand": false,
+    "sessions": [
+     {
+      "date": "2026-10-31",
+      "time": "10:00 AM",
+      "tz": "MT"
+     }
+    ]
+   }
+  ],
+  "FL": [
+   {
+    "name": "FLORIDA Nonpartisan Poll Monitor Training 2026",
+    "url": "https://www.mobilize.us/commoncause/event/975203",
+    "role": "Poll Monitoring",
+    "modality": "Virtual",
+    "on_demand": false,
+    "sessions": [
+     {
+      "date": "2026-11-01",
+      "time": "3:00 PM",
+      "tz": "ET"
+     }
+    ]
+   },
+   {
+    "name": "Florida Poll Monitor Training (English)",
+    "url": "https://app.protectthevote.net/volunteer/trainings/247",
+    "role": "Poll Monitor",
+    "modality": "Virtual",
+    "on_demand": false,
+    "sessions": [
+     {
+      "date": "2026-11-01",
+      "tz": "ET"
+     }
+    ]
+   }
+  ],
+  "GA": [
+   {
+    "name": "Georgia Poll Monitoring Training November 2026",
+    "url": "https://app.protectthevote.net/volunteer/trainings/417",
+    "role": "Poll Monitor",
+    "modality": "Virtual",
+    "on_demand": false,
+    "sessions": [
+     {
+      "date": "2026-11-01",
+      "tz": "ET"
+     }
+    ]
+   }
+  ],
+  "HI": [
+   {
+    "name": "Hawai'i Poll Monitor Volunteer Training",
+    "url": "https://www.mobilize.us/commoncause/event/1059798",
+    "role": "Poll Monitoring",
+    "modality": "Virtual",
+    "on_demand": false,
+    "sessions": [
+     {
+      "date": "2026-10-31",
+      "tz": "HT"
+     },
+     {
+      "date": "2026-11-01",
+      "tz": "HT"
+     },
+     {
+      "date": "2026-11-02",
+      "tz": "HT"
+     }
+    ]
+   }
+  ],
+  "IA": [
+   {
+    "name": "Virtual Roving Poll Monitor Training - Iowa",
+    "url": "https://app.protectthevote.net/volunteer/trainings/398",
+    "role": "Roving Poll Monitor",
+    "on_demand": true
+   }
+  ],
+  "IN": [
+   {
+    "name": "Indiana Election Protection Training",
+    "url": "https://app.protectthevote.net/volunteer/trainings/413",
+    "role": "Voter Advocate",
+    "modality": "Virtual",
+    "on_demand": false,
+    "sessions": [
+     {
+      "date": "2026-11-01",
+      "tz": "ET"
+     }
+    ]
+   },
+   {
+    "name": "Indiana Election Protection On Demand Training",
+    "url": "https://app.protectthevote.net/volunteer/trainings/406",
+    "role": "Voter Advocate",
+    "on_demand": true
+   }
+  ],
+  "MD": [
+   {
+    "name": "Maryland Poll Monitor Training",
+    "url": "https://app.protectthevote.net/volunteer/trainings/180",
+    "role": "Poll Monitor",
+    "on_demand": true
+   },
+   {
+    "name": "Maryland Poll Monitor Training - 10/14/26",
+    "url": "https://app.protectthevote.net/volunteer/trainings/320",
+    "role": "Poll Monitor",
+    "on_demand": true
+   }
+  ],
+  "MI": [
+   {
+    "name": "ON DEMAND 2026 Michigan Poll Monitor (1 site) Training",
+    "url": "https://app.protectthevote.net/volunteer/trainings/254",
+    "role": "Poll Monitor (1 site)",
+    "on_demand": true
+   },
+   {
+    "name": "ON DEMAND 2026 Michigan Roving Monitor (multi-site) Training",
+    "url": "https://app.protectthevote.net/volunteer/trainings/255",
+    "role": "Roving Monitor (Multi-site)",
+    "on_demand": true
+   }
+  ],
+  "MN": [
+   {
+    "name": "Election Protection Legal Training",
+    "url": "https://app.protectthevote.net/volunteer/trainings/381",
+    "role": "Roving Poll Monitor",
+    "on_demand": true
+   },
+   {
+    "name": "Election Protection Program Training",
+    "url": "https://app.protectthevote.net/volunteer/trainings/380",
+    "role": "Roving Poll Monitor",
+    "on_demand": true
+   },
+   {
+    "name": "Polling Place Safety",
+    "url": "https://app.protectthevote.net/volunteer/trainings/419",
+    "role": "Roving Poll Monitor",
+    "on_demand": true
+   }
+  ],
+  "MO": [
+   {
+    "name": "Missouri LIVE Legal Training",
+    "url": "https://app.protectthevote.net/volunteer/trainings/422",
+    "role": "Legal (Attorney, Law Student, Paralegal)",
+    "modality": "Virtual",
+    "on_demand": false,
+    "sessions": [
+     {
+      "date": "2026-10-31",
+      "tz": "CT"
+     }
+    ]
+   },
+   {
+    "name": "Missouri LIVE Poll Monitor Training",
+    "url": "https://app.protectthevote.net/volunteer/trainings/420",
+    "role": "Poll Monitor",
+    "modality": "Virtual",
+    "on_demand": false,
+    "sessions": [
+     {
+      "date": "2026-10-31",
+      "tz": "CT"
+     }
+    ]
+   },
+   {
+    "name": "Missouri LIVE Roving Monitor Training",
+    "url": "https://app.protectthevote.net/volunteer/trainings/421",
+    "role": "Roving Monitor",
+    "modality": "Virtual",
+    "on_demand": false,
+    "sessions": [
+     {
+      "date": "2026-10-31",
+      "tz": "CT"
+     }
+    ]
+   },
+   {
+    "name": "Missouri 2026 General Election Poll Monitor Training",
+    "url": "https://app.protectthevote.net/volunteer/trainings/350",
+    "role": "Poll Monitor",
+    "on_demand": true
+   },
+   {
+    "name": "Missouri 2026 General Election Roving Poll Monitor Training",
+    "url": "https://app.protectthevote.net/volunteer/trainings/351",
+    "role": "Roving Monitor",
+    "on_demand": true
+   },
+   {
+    "name": "Missouri 2026 Legal Training",
+    "url": "https://app.protectthevote.net/volunteer/trainings/394",
+    "role": "Legal (Attorney, Law Student, Paralegal)",
+    "on_demand": true
+   }
+  ],
+  "MT": [
+   {
+    "name": "Montana Poll Monitor Training",
+    "url": "https://app.protectthevote.net/volunteer/trainings/349",
+    "role": "Poll Monitor",
+    "on_demand": true
+   }
+  ],
+  "PA": [
+   {
+    "name": "On Demand Recorded Pennsylvania Poll Monitor Training",
+    "url": "https://app.protectthevote.net/volunteer/trainings/404",
+    "role": "Poll monitor",
+    "on_demand": true
+   },
+   {
+    "name": "On-Demand Recorded Pennsylvania Legal Monitor Training",
+    "url": "https://app.protectthevote.net/volunteer/trainings/405",
+    "role": "Legal Monitor",
+    "on_demand": true
+   }
+  ],
+  "RI": [
+   {
+    "name": "Rhode Island Poll Monitor Training - Election Day 2026",
+    "url": "https://app.protectthevote.net/volunteer/trainings/418",
+    "role": "Poll Monitor",
+    "on_demand": true
+   }
+  ],
+  "SD": [
+   {
+    "name": "South Dakota Election Observer Training 2026 recorded",
+    "url": "https://app.protectthevote.net/volunteer/trainings/409",
+    "role": "Poll Monitor",
+    "on_demand": true
+   }
+  ],
+  "TX": [
+   {
+    "name": "Train to #ProtectTheVote in Texas",
+    "url": "https://www.mobilize.us/commoncause/event/995221",
+    "role": "Poll Monitoring",
+    "modality": "Virtual",
+    "on_demand": false,
+    "sessions": [
+     {
+      "date": "2026-10-31",
+      "time": "11:00 AM",
+      "tz": "CT"
+     }
+    ]
+   }
+  ],
+  "UT": [
+   {
+    "name": "2026 Utah Poll Watcher Training",
+    "url": "https://app.protectthevote.net/volunteer/trainings/244",
+    "role": "Poll Monitor",
+    "on_demand": true
+   },
+   {
+    "name": "2026 Utah Poll Watcher Training (Rover)",
+    "url": "https://app.protectthevote.net/volunteer/trainings/317",
+    "role": "Roving Poll Monitor",
+    "on_demand": true
+   },
+   {
+    "name": "2026 Utah Poll Watcher Training (Signs)",
+    "url": "https://app.protectthevote.net/volunteer/trainings/318",
+    "role": "Sign Collector",
+    "on_demand": true
+   }
+  ],
+  "VA": [
+   {
+    "name": "Protect the Vote",
+    "url": "https://www.protectthevoteva.org/sign-up",
+    "role": "Poll Monitor",
+    "modality": "Virtual",
+    "on_demand": false,
+    "sessions": [
+     {
+      "date": "2026-11-01",
+      "time": "1:00 PM",
+      "tz": "ET"
+     },
+     {
+      "date": "2026-11-01",
+      "time": "4:00 PM",
+      "tz": "ET"
+     },
+     {
+      "date": "2026-11-01",
+      "time": "7:00 PM",
+      "tz": "ET"
+     }
+    ]
+   }
+  ],
+  "WI": [
+   {
+    "name": "Wisconsin Poll Monitor On-Demand Training",
+    "url": "https://app.protectthevote.net/volunteer/trainings/396",
+    "role": "Poll Monitor",
+    "on_demand": true
+   }
+  ]
+ }
+}
